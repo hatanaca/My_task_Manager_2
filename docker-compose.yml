@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend  
+    ports:
+      - "8000:8000"
+  environment:
+    - APP_ENV=local
+    - DB_CONNECTION=pgsgl
+    - DB_HOST=db
+    - DB_PORT=5432
+    - DB_DATABASE=database_name
+    - DB_USERNAME=username
+    - DB_PASSWORD=password
+  depends_on:
+    - db
+  frontend:
+    build: ./frontend 
+    ports: 
+     - "8000:8000"
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: database
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+    volumes: 
+     - pgdata:/var/lib/postgresql/data
+  volumes:
+    pgdata:
