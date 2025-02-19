@@ -18,11 +18,14 @@
 
 <script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue';
+//defineCOmponent => typed component, ref => reactive variable, onMounted exec code when componnet is monted
 import { useRoute, useRouter } from 'vue-router';
+//useRoute => information of actual URL, useRouter navegation between pages
 import axios from 'axios';
+//http request
 import CommentSection from './CommenSelection.vue';
 import FileAttachment from './FileAttachment.vue';
-
+//linha 10,11 ":" => "v-bind:taskId="task.id"
 interface Task {
 	id: number;
 	title: string;
@@ -35,6 +38,7 @@ export default  defineComponent({
 	name: 'TaskDetail',
 	components: {CommentSection, FileAttachment },
 	setup() {
+	//Init the component
 		const route = useRoute();
 		const router = useRouter();
 		const task = ref<Task | null>(null);
