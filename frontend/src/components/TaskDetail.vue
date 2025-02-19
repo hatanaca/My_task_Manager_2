@@ -1,0 +1,58 @@
+<template>
+	<div v-if="task">
+		<h2>Task Detail</h2>
+		<h3>{{ task.title }}</h3>
+		<p>{{ task.description }}</p>
+		<p>Status: <strong>{{ task.completed ? 'Completed' : 'Pending' }}</strong></p>
+		<div v-if="task.project">
+			<p>Project: {{ task.project.name }}</p>
+		</div>
+		<FileAttachment :taskId="task.id" />
+		<CommentSection :taskId="task.id" />
+		<button @click="goBack">Back</button>
+	</div>
+	</div v-else>
+		<p>Loading task details...</p>
+		</div>
+</template>
+
+<script lang="ts">
+import { defineComponent, ref, onMounted } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import axios from 'axios';
+import CommentSection from './CommenSelection.vue';
+import FileAttachment from './FileAttachment.vue';
+
+interface Task {
+	id: number;
+	title: string;
+	description: string;
+	completed: boolean;
+	project?: { name: string };
+	}
+
+export default  defineComponent({
+	name: 'TaskDetail',
+	components: {CommentSection, FileAttachment },
+	setup() {
+		const route = useRoute();
+		const router = useRouter();
+		const task = ref<Task | null>(null);
+
+		const fetchTask = async () => {
+			try {
+				const response = await axios.get(`http://localhost/api/tasks/${route.params.id}`)
+				task.value = response.data;
+				} catch (error) {
+				console.error('Error fetching task detail', error);
+				}
+			};
+
+			onMounted(fetchTask);
+			const goBack = () => router.push({ name: 'TaskList' });
+			return { task, goBack };
+			}
+			});
+</script>
+
+
