@@ -42,7 +42,7 @@ export default  defineComponent({
 		const route = useRoute();
 		const router = useRouter();
 		const task = ref<Task | null>(null);
-
+		//Typescript genericType, ref => reactive variable, start's with null
 		const fetchTask = async () => {
 			try {
 				const response = await axios.get(`http://localhost/api/tasks/${route.params.id}`)
