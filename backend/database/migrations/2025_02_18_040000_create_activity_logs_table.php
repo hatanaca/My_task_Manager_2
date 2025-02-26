@@ -3,11 +3,11 @@
 use Illuminate\Database\Migrations\Migration;
 use illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-//Importing standard functions
-//migrations has two functions up and down
-//migrations is like git, you can revert changes with the functions 
-//abstraction of databe syntax
-
+//use -> namespace {{class,methods,etc}}
+//migrations -> database version, change database, two functions  
+//abstraction of database syntax
+//--> :: <-- acess static properties, without instance, 
+// static methods cant acess 'this'
 class CreateActivityLogsTable extends Migration
 {
 	public function up()
