@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateActivityLogsTable extends Migration
 {
 	public function up()
-	{
+	{	//1 - create table, 2 - aroow function that receive a objeto and creat coluns
 		Schema::create('activity_logs', function (Blueprint $table) {
 			$table->id();
 			$table->string('action');
