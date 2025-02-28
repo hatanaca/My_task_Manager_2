@@ -14,12 +14,13 @@ class TaskTest extends TestCase
 	//without herance
 	public function test_create_task()
 	{
+		//[title: 'Test Task'] 
 		$data = [
 			'title' => 'Test Task',
 			'desciption' => 'Test description',
 			'completed' => false
 		];
-
+		//u can declare variable in any part, this reffers to his class instance
 		$response = $this->postJson('/api/tasks', $data);
 		$response->assertStatus(201)->assertJsonFragment(['title' => 'Test Task']);
 		$this->assertDatabaseHas('tasks', ['title' => 'Test Task']);
@@ -28,6 +29,7 @@ class TaskTest extends TestCase
 	public function test_fetch_tasks_with_filtering()
 	{
 		Task::factory()->create(['title' => 'Unique Task']);
+		//:: acess static method, that return a instance and after call a method from that instance(Objeto)
 		$response = $this->getJson('/api/tasks?search=Unique');
 		$response->assertStatus(200)->assertJsonFragment(['title' => 'Unique Task']);
 	}
