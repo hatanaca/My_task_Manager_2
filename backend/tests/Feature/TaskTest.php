@@ -19,6 +19,17 @@ class TaskTest extends TestCase
 			'desciption' => 'Test description',
 			'completed' => false
 		];
-		
-		$response
+
+		$response = $this->postJson('/api/tasks', $data);
+		$response->assertStatus(201)->assertJsonFragment(['title' => 'Test Task']);
+		$this->assertDatabaseHas('tasks', ['title' => 'Test Task']);
+	}
+
+	public function test_fetch_tasks_with_filtering()
+	{
+		Task::factory()->create(['title' => 'Unique Task']);
+		$response = $this->getJson('/api/tasks?search=Unique');
+		$response->assertStatus(200)->assertJsonFragment(['title' => 'Unique Task']);
+	}
+}
 
