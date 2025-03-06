@@ -1,7 +1,7 @@
 <?php 
 
 namespace Tests\Feature;
-
+//this file is used with php unit ou artisan
 use illuminate\Foundation\Testing\RefreshDatabase;
 //in that context use is importing the class
 use Tests\TestCase;
