@@ -11,16 +11,17 @@ use Illuminate\Support\Facades\Notification;
 class TaskController extends Controller 
 {
 	// GET /api/tasks?completed=true&search=keyword
-	public function index(Request $request) 
+	public function index(Request $request) // Dependenci injection
 	{
 		try {
 			$query = Task::query();
 			if ($request->has('completed')) {
 				$query->where('completed', $request->query('completed'));
-			}
+				//receita para realizar consultas no banco de dados
+			}	//coluna COMPLETED do banco de dados, valor que tem que ter na coluna
 			if ($request->has('search')) {
 				$search = $request->query('search');
-				$query->where('tittle', 'ILIKE', "%$search$")->orWhere('description', 'ILIKE', "%search%");
+				$query->where('title', 'ILIKE', "%$search%")->orWhere('description', 'ILIKE', "%$search%");
 			}
 			$tasks = $query->get();
 			return response()->json($tasks);
@@ -45,7 +46,7 @@ class TaskController extends Controller
 			Notification::send(\App\Models\User::all(), new TaskNotification("New task '{$task->title}' created."));
 			return response()->json($task, 201);
 		} catch (\Exception $e) {
-			return rsponse()->json(['message' => 'Error creating task'], 508);
+			return response()->json(['message' => 'Error creating task'], 508);
 		}
 	}
 
