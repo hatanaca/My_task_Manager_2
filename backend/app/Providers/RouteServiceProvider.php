@@ -11,45 +11,18 @@ use Illuminate\Support\Facades\Log;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    /**
-     * Define your route model bindings, pattern filters, etc.
-     */
-    public function boot()
-{
-    $this->routes(function () {
+    // Adicione esta linha (nome completo do namespace dos controladores)
+    protected $namespace = 'App\Http\Controllers';
+
+    public function boot(): void
+    {
         Route::middleware('api')
-            ->namespace($this->namespace)  // Adicione esta linha
+            ->prefix('api')
+            ->namespace($this->namespace) // Agora esta linha funciona
             ->group(base_path('routes/api.php'));
-    });
-}
-    /**
-     * Configure the rate limiters for the application.
-     */
-    protected function configureRateLimiting(): void
-    {
-        RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
-        });
+
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
     }
-
-    /**
-     * Define the routes for the application.
-     */
-    public function map(): void
-    {
-        Log::debug('Mapping routes...');
-
-        $this->mapApiRoutes();
-    }
-
-    /**
-     * Define the "api" routes for the application.
-     */
-    protected function mapApiRoutes(): void
-{
-    Route::middleware('api')
-        ->prefix('api')
-        ->namespace('App\Http\Controllers')
-        ->group(base_path('routes/api.php')); // Teste com o novo arquivo
-}
 }

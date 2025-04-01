@@ -32,7 +32,10 @@ class CommentController extends Controller
 			$comment = Comment::create($validated);
 			return response()->json($comment, 201);
 		} catch (\Exception $e) {
-			return response()->json(['message' => 'Error creating comment'],
-		}
+    return response()->json(
+        ['message' => 'Error creating comment'],
+        500 // Status code HTTP (ex: 500 para Internal Server Error)
+    );
+}
 	}
 }

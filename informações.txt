@@ -1,0 +1,1367 @@
+.
+├── README.md
+├── backend
+│   ├── Dockerfile
+│   ├── README.md
+│   ├── app
+│   │   ├── Http
+│   │   ├── Models
+│   │   ├── Notifications
+│   │   └── Providers
+│   ├── arquivogenerico.txt
+│   ├── artisan
+│   ├── bootstrap
+│   │   ├── app.php
+│   │   ├── cache
+│   │   └── providers.php
+│   ├── composer.json
+│   ├── composer.lock
+│   ├── config
+│   │   ├── app.php
+│   │   ├── auth.php
+│   │   ├── cache.php
+│   │   ├── cors.php
+│   │   ├── database.php
+│   │   ├── filesystems.php
+│   │   ├── logging.php
+│   │   ├── mail.php
+│   │   ├── queue.php
+│   │   ├── services.php
+│   │   └── session.php
+│   ├── database
+│   │   ├── database.sqlite
+│   │   ├── factories
+│   │   ├── migrations
+│   │   └── seeders
+│   ├── html
+│   │   └── index.nginx-debian.html
+│   ├── nginx.conf
+│   ├── package.json
+│   ├── phpunit.xml
+│   ├── public
+│   │   ├── favicon.ico
+│   │   ├── index.php
+│   │   └── robots.txt
+│   ├── resources
+│   │   ├── css
+│   │   ├── js
+│   │   └── views
+│   ├── routes
+│   │   ├── api.php
+│   │   ├── api_test.php
+│   │   ├── console.php
+│   │   ├── test.php
+│   │   └── web.php
+│   ├── script.sh
+│   ├── storage
+│   │   ├── app
+│   │   ├── framework
+│   │   └── logs
+│   ├── tests
+│   │   ├── Feature
+│   │   ├── TestCase.php
+│   │   └── Unit
+│   ├── vendor
+│   │   ├── autoload.php
+│   │   ├── bin
+│   │   ├── brick
+│   │   ├── carbonphp
+│   │   ├── composer
+│   │   ├── dflydev
+│   │   ├── doctrine
+│   │   ├── dragonmantank
+│   │   ├── egulias
+│   │   ├── fakerphp
+│   │   ├── filp
+│   │   ├── fruitcake
+│   │   ├── graham-campbell
+│   │   ├── guzzlehttp
+│   │   ├── hamcrest
+│   │   ├── laravel
+│   │   ├── league
+│   │   ├── mockery
+│   │   ├── monolog
+│   │   ├── myclabs
+│   │   ├── nesbot
+│   │   ├── nette
+│   │   ├── nikic
+│   │   ├── nunomaduro
+│   │   ├── phar-io
+│   │   ├── phpoption
+│   │   ├── phpunit
+│   │   ├── psr
+│   │   ├── psy
+│   │   ├── ralouphie
+│   │   ├── ramsey
+│   │   ├── sebastian
+│   │   ├── staabm
+│   │   ├── symfony
+│   │   ├── theseer
+│   │   ├── tijsverkoyen
+│   │   ├── vlucas
+│   │   ├── voku
+│   │   └── webmozart
+│   └── vite.config.js
+├── composer.json
+├── composer.lock
+├── docker-compose.yml
+├── frontend
+│   ├── Dockerfile
+│   ├── README.md
+│   ├── jest.config.js
+│   ├── node_modules
+│   │   ├── @achrinza
+│   │   ├── @ampproject
+│   │   ├── @apideck
+│   │   ├── @babel
+│   │   ├── @bcoe
+│   │   ├── @discoveryjs
+│   │   ├── @eslint
+│   │   ├── @eslint-community
+│   │   ├── @hapi
+│   │   ├── @humanwhocodes
+│   │   ├── @isaacs
+│   │   ├── @istanbuljs
+│   │   ├── @jest
+│   │   ├── @jridgewell
+│   │   ├── @leichtgewicht
+│   │   ├── @node-ipc
+│   │   ├── @nodelib
+│   │   ├── @one-ini
+│   │   ├── @pkgjs
+│   │   ├── @polka
+│   │   ├── @rollup
+│   │   ├── @sideway
+│   │   ├── @sinclair
+│   │   ├── @sinonjs
+│   │   ├── @soda
+│   │   ├── @surma
+│   │   ├── @tootallnate
+│   │   ├── @trysound
+│   │   ├── @types
+│   │   ├── @typescript-eslint
+│   │   ├── @vue
+│   │   ├── @webassemblyjs
+│   │   ├── @xtuc
+│   │   ├── abab
+│   │   ├── abbrev
+│   │   ├── accepts
+│   │   ├── acorn
+│   │   ├── acorn-globals
+│   │   ├── acorn-jsx
+│   │   ├── acorn-walk
+│   │   ├── address
+│   │   ├── agent-base
+│   │   ├── ajv
+│   │   ├── ajv-formats
+│   │   ├── ansi-colors
+│   │   ├── ansi-escapes
+│   │   ├── ansi-html-community
+│   │   ├── ansi-regex
+│   │   ├── ansi-styles
+│   │   ├── any-promise
+│   │   ├── anymatch
+│   │   ├── arch
+│   │   ├── argparse
+│   │   ├── array-buffer-byte-length
+│   │   ├── array-flatten
+│   │   ├── array-union
+│   │   ├── arraybuffer.prototype.slice
+│   │   ├── astral-regex
+│   │   ├── async
+│   │   ├── async-function
+│   │   ├── asynckit
+│   │   ├── at-least-node
+│   │   ├── autoprefixer
+│   │   ├── available-typed-arrays
+│   │   ├── axios
+│   │   ├── babel-jest
+│   │   ├── babel-loader
+│   │   ├── babel-plugin-istanbul
+│   │   ├── babel-plugin-jest-hoist
+│   │   ├── babel-plugin-polyfill-corejs2
+│   │   ├── babel-plugin-polyfill-corejs3
+│   │   ├── babel-plugin-polyfill-regenerator
+│   │   ├── babel-preset-current-node-syntax
+│   │   ├── babel-preset-jest
+│   │   ├── balanced-match
+│   │   ├── base64-js
+│   │   ├── batch
+│   │   ├── big.js
+│   │   ├── binary-extensions
+│   │   ├── bl
+│   │   ├── bluebird
+│   │   ├── body-parser
+│   │   ├── bonjour-service
+│   │   ├── boolbase
+│   │   ├── brace-expansion
+│   │   ├── braces
+│   │   ├── browser-process-hrtime
+│   │   ├── browserslist
+│   │   ├── bs-logger
+│   │   ├── bser
+│   │   ├── buffer
+│   │   ├── buffer-from
+│   │   ├── builtin-modules
+│   │   ├── bytes
+│   │   ├── call-bind
+│   │   ├── call-bind-apply-helpers
+│   │   ├── call-bound
+│   │   ├── callsites
+│   │   ├── camel-case
+│   │   ├── camelcase
+│   │   ├── caniuse-api
+│   │   ├── caniuse-lite
+│   │   ├── case-sensitive-paths-webpack-plugin
+│   │   ├── chalk
+│   │   ├── char-regex
+│   │   ├── chokidar
+│   │   ├── chrome-trace-event
+│   │   ├── ci-info
+│   │   ├── cjs-module-lexer
+│   │   ├── clean-css
+│   │   ├── cli-cursor
+│   │   ├── cli-highlight
+│   │   ├── cli-spinners
+│   │   ├── clipboardy
+│   │   ├── cliui
+│   │   ├── clone
+│   │   ├── clone-deep
+│   │   ├── co
+│   │   ├── collect-v8-coverage
+│   │   ├── color-convert
+│   │   ├── color-name
+│   │   ├── colord
+│   │   ├── colorette
+│   │   ├── combined-stream
+│   │   ├── commander
+│   │   ├── common-tags
+│   │   ├── commondir
+│   │   ├── compressible
+│   │   ├── compression
+│   │   ├── concat-map
+│   │   ├── condense-newlines
+│   │   ├── config-chain
+│   │   ├── connect-history-api-fallback
+│   │   ├── consolidate
+│   │   ├── content-disposition
+│   │   ├── content-type
+│   │   ├── convert-source-map
+│   │   ├── cookie
+│   │   ├── cookie-signature
+│   │   ├── copy-webpack-plugin
+│   │   ├── core-js-compat
+│   │   ├── core-util-is
+│   │   ├── cosmiconfig
+│   │   ├── cross-spawn
+│   │   ├── crypto-random-string
+│   │   ├── css-declaration-sorter
+│   │   ├── css-loader
+│   │   ├── css-minimizer-webpack-plugin
+│   │   ├── css-select
+│   │   ├── css-tree
+│   │   ├── css-what
+│   │   ├── cssesc
+│   │   ├── cssnano
+│   │   ├── cssnano-preset-default
+│   │   ├── cssnano-utils
+│   │   ├── csso
+│   │   ├── cssom
+│   │   ├── cssstyle
+│   │   ├── csstype
+│   │   ├── data-urls
+│   │   ├── data-view-buffer
+│   │   ├── data-view-byte-length
+│   │   ├── data-view-byte-offset
+│   │   ├── debounce
+│   │   ├── debug
+│   │   ├── decimal.js
+│   │   ├── dedent
+│   │   ├── deep-is
+│   │   ├── deepmerge
+│   │   ├── default-gateway
+│   │   ├── defaults
+│   │   ├── define-data-property
+│   │   ├── define-lazy-prop
+│   │   ├── define-properties
+│   │   ├── delayed-stream
+│   │   ├── depd
+│   │   ├── destroy
+│   │   ├── detect-newline
+│   │   ├── detect-node
+│   │   ├── diff-sequences
+│   │   ├── dir-glob
+│   │   ├── dns-packet
+│   │   ├── doctrine
+│   │   ├── dom-converter
+│   │   ├── dom-serializer
+│   │   ├── domelementtype
+│   │   ├── domexception
+│   │   ├── domhandler
+│   │   ├── domutils
+│   │   ├── dot-case
+│   │   ├── dotenv
+│   │   ├── dotenv-expand
+│   │   ├── dunder-proto
+│   │   ├── duplexer
+│   │   ├── eastasianwidth
+│   │   ├── easy-stack
+│   │   ├── editorconfig
+│   │   ├── ee-first
+│   │   ├── ejs
+│   │   ├── electron-to-chromium
+│   │   ├── emittery
+│   │   ├── emoji-regex
+│   │   ├── emojis-list
+│   │   ├── encodeurl
+│   │   ├── end-of-stream
+│   │   ├── enhanced-resolve
+│   │   ├── enquirer
+│   │   ├── entities
+│   │   ├── error-ex
+│   │   ├── error-stack-parser
+│   │   ├── es-abstract
+│   │   ├── es-define-property
+│   │   ├── es-errors
+│   │   ├── es-module-lexer
+│   │   ├── es-object-atoms
+│   │   ├── es-set-tostringtag
+│   │   ├── es-to-primitive
+│   │   ├── escalade
+│   │   ├── escape-html
+│   │   ├── escape-string-regexp
+│   │   ├── escodegen
+│   │   ├── eslint
+│   │   ├── eslint-plugin-vue
+│   │   ├── eslint-scope
+│   │   ├── eslint-utils
+│   │   ├── eslint-visitor-keys
+│   │   ├── eslint-webpack-plugin
+│   │   ├── espree
+│   │   ├── esprima
+│   │   ├── esquery
+│   │   ├── esrecurse
+│   │   ├── estraverse
+│   │   ├── estree-walker
+│   │   ├── esutils
+│   │   ├── etag
+│   │   ├── event-pubsub
+│   │   ├── eventemitter3
+│   │   ├── events
+│   │   ├── execa
+│   │   ├── exit
+│   │   ├── expect
+│   │   ├── express
+│   │   ├── extend-shallow
+│   │   ├── fast-deep-equal
+│   │   ├── fast-glob
+│   │   ├── fast-json-stable-stringify
+│   │   ├── fast-levenshtein
+│   │   ├── fast-uri
+│   │   ├── fastq
+│   │   ├── faye-websocket
+│   │   ├── fb-watchman
+│   │   ├── figures
+│   │   ├── file-entry-cache
+│   │   ├── filelist
+│   │   ├── fill-range
+│   │   ├── finalhandler
+│   │   ├── find-cache-dir
+│   │   ├── find-up
+│   │   ├── flat
+│   │   ├── flat-cache
+│   │   ├── flatted
+│   │   ├── follow-redirects
+│   │   ├── for-each
+│   │   ├── foreground-child
+│   │   ├── fork-ts-checker-webpack-plugin
+│   │   ├── form-data
+│   │   ├── forwarded
+│   │   ├── fraction.js
+│   │   ├── fresh
+│   │   ├── fs-extra
+│   │   ├── fs-monkey
+│   │   ├── fs.realpath
+│   │   ├── function-bind
+│   │   ├── function.prototype.name
+│   │   ├── functional-red-black-tree
+│   │   ├── functions-have-names
+│   │   ├── gensync
+│   │   ├── get-caller-file
+│   │   ├── get-intrinsic
+│   │   ├── get-own-enumerable-property-symbols
+│   │   ├── get-package-type
+│   │   ├── get-proto
+│   │   ├── get-stream
+│   │   ├── get-symbol-description
+│   │   ├── glob
+│   │   ├── glob-parent
+│   │   ├── glob-to-regexp
+│   │   ├── globals
+│   │   ├── globalthis
+│   │   ├── globby
+│   │   ├── gopd
+│   │   ├── graceful-fs
+│   │   ├── graphemer
+│   │   ├── gzip-size
+│   │   ├── handle-thing
+│   │   ├── has-bigints
+│   │   ├── has-flag
+│   │   ├── has-property-descriptors
+│   │   ├── has-proto
+│   │   ├── has-symbols
+│   │   ├── has-tostringtag
+│   │   ├── hash-sum
+│   │   ├── hasown
+│   │   ├── he
+│   │   ├── highlight.js
+│   │   ├── hosted-git-info
+│   │   ├── hpack.js
+│   │   ├── html-encoding-sniffer
+│   │   ├── html-entities
+│   │   ├── html-escaper
+│   │   ├── html-minifier-terser
+│   │   ├── html-webpack-plugin
+│   │   ├── htmlparser2
+│   │   ├── http-deceiver
+│   │   ├── http-errors
+│   │   ├── http-parser-js
+│   │   ├── http-proxy
+│   │   ├── http-proxy-agent
+│   │   ├── http-proxy-middleware
+│   │   ├── https-proxy-agent
+│   │   ├── human-signals
+│   │   ├── iconv-lite
+│   │   ├── icss-utils
+│   │   ├── idb
+│   │   ├── ieee754
+│   │   ├── ignore
+│   │   ├── import-fresh
+│   │   ├── import-local
+│   │   ├── imurmurhash
+│   │   ├── inflight
+│   │   ├── inherits
+│   │   ├── ini
+│   │   ├── internal-slot
+│   │   ├── ipaddr.js
+│   │   ├── is-array-buffer
+│   │   ├── is-arrayish
+│   │   ├── is-async-function
+│   │   ├── is-bigint
+│   │   ├── is-binary-path
+│   │   ├── is-boolean-object
+│   │   ├── is-buffer
+│   │   ├── is-callable
+│   │   ├── is-ci
+│   │   ├── is-core-module
+│   │   ├── is-data-view
+│   │   ├── is-date-object
+│   │   ├── is-docker
+│   │   ├── is-extendable
+│   │   ├── is-extglob
+│   │   ├── is-file-esm
+│   │   ├── is-finalizationregistry
+│   │   ├── is-fullwidth-code-point
+│   │   ├── is-generator-fn
+│   │   ├── is-generator-function
+│   │   ├── is-glob
+│   │   ├── is-interactive
+│   │   ├── is-map
+│   │   ├── is-module
+│   │   ├── is-number
+│   │   ├── is-number-object
+│   │   ├── is-obj
+│   │   ├── is-plain-obj
+│   │   ├── is-plain-object
+│   │   ├── is-potential-custom-element-name
+│   │   ├── is-regex
+│   │   ├── is-regexp
+│   │   ├── is-set
+│   │   ├── is-shared-array-buffer
+│   │   ├── is-stream
+│   │   ├── is-string
+│   │   ├── is-symbol
+│   │   ├── is-typed-array
+│   │   ├── is-typedarray
+│   │   ├── is-unicode-supported
+│   │   ├── is-weakmap
+│   │   ├── is-weakref
+│   │   ├── is-weakset
+│   │   ├── is-whitespace
+│   │   ├── is-wsl
+│   │   ├── isarray
+│   │   ├── isexe
+│   │   ├── isobject
+│   │   ├── istanbul-lib-coverage
+│   │   ├── istanbul-lib-instrument
+│   │   ├── istanbul-lib-report
+│   │   ├── istanbul-lib-source-maps
+│   │   ├── istanbul-reports
+│   │   ├── jackspeak
+│   │   ├── jake
+│   │   ├── javascript-stringify
+│   │   ├── jest
+│   │   ├── jest-changed-files
+│   │   ├── jest-circus
+│   │   ├── jest-cli
+│   │   ├── jest-config
+│   │   ├── jest-diff
+│   │   ├── jest-docblock
+│   │   ├── jest-each
+│   │   ├── jest-environment-jsdom
+│   │   ├── jest-environment-node
+│   │   ├── jest-get-type
+│   │   ├── jest-haste-map
+│   │   ├── jest-jasmine2
+│   │   ├── jest-leak-detector
+│   │   ├── jest-matcher-utils
+│   │   ├── jest-message-util
+│   │   ├── jest-mock
+│   │   ├── jest-pnp-resolver
+│   │   ├── jest-regex-util
+│   │   ├── jest-resolve
+│   │   ├── jest-resolve-dependencies
+│   │   ├── jest-runner
+│   │   ├── jest-runtime
+│   │   ├── jest-serializer
+│   │   ├── jest-serializer-vue
+│   │   ├── jest-snapshot
+│   │   ├── jest-transform-stub
+│   │   ├── jest-util
+│   │   ├── jest-validate
+│   │   ├── jest-watch-typeahead
+│   │   ├── jest-watcher
+│   │   ├── jest-worker
+│   │   ├── joi
+│   │   ├── js-beautify
+│   │   ├── js-cookie
+│   │   ├── js-message
+│   │   ├── js-tokens
+│   │   ├── js-yaml
+│   │   ├── jsdom
+│   │   ├── jsesc
+│   │   ├── json-buffer
+│   │   ├── json-parse-better-errors
+│   │   ├── json-parse-even-better-errors
+│   │   ├── json-schema
+│   │   ├── json-schema-traverse
+│   │   ├── json-stable-stringify-without-jsonify
+│   │   ├── json5
+│   │   ├── jsonfile
+│   │   ├── jsonpointer
+│   │   ├── keyv
+│   │   ├── kind-of
+│   │   ├── kleur
+│   │   ├── klona
+│   │   ├── launch-editor
+│   │   ├── launch-editor-middleware
+│   │   ├── leven
+│   │   ├── levn
+│   │   ├── lilconfig
+│   │   ├── lines-and-columns
+│   │   ├── loader-runner
+│   │   ├── loader-utils
+│   │   ├── locate-path
+│   │   ├── lodash
+│   │   ├── lodash.debounce
+│   │   ├── lodash.defaultsdeep
+│   │   ├── lodash.mapvalues
+│   │   ├── lodash.memoize
+│   │   ├── lodash.merge
+│   │   ├── lodash.sortby
+│   │   ├── lodash.truncate
+│   │   ├── lodash.uniq
+│   │   ├── log-symbols
+│   │   ├── log-update
+│   │   ├── lower-case
+│   │   ├── lru-cache
+│   │   ├── magic-string
+│   │   ├── make-dir
+│   │   ├── make-error
+│   │   ├── makeerror
+│   │   ├── math-intrinsics
+│   │   ├── mdn-data
+│   │   ├── media-typer
+│   │   ├── memfs
+│   │   ├── merge-descriptors
+│   │   ├── merge-source-map
+│   │   ├── merge-stream
+│   │   ├── merge2
+│   │   ├── methods
+│   │   ├── micromatch
+│   │   ├── mime
+│   │   ├── mime-db
+│   │   ├── mime-types
+│   │   ├── mimic-fn
+│   │   ├── mini-css-extract-plugin
+│   │   ├── minimalistic-assert
+│   │   ├── minimatch
+│   │   ├── minimist
+│   │   ├── minipass
+│   │   ├── module-alias
+│   │   ├── mrmime
+│   │   ├── ms
+│   │   ├── multicast-dns
+│   │   ├── mz
+│   │   ├── nanoid
+│   │   ├── natural-compare
+│   │   ├── natural-compare-lite
+│   │   ├── negotiator
+│   │   ├── neo-async
+│   │   ├── nice-try
+│   │   ├── no-case
+│   │   ├── node-fetch
+│   │   ├── node-forge
+│   │   ├── node-int64
+│   │   ├── node-releases
+│   │   ├── nopt
+│   │   ├── normalize-package-data
+│   │   ├── normalize-path
+│   │   ├── normalize-range
+│   │   ├── normalize-url
+│   │   ├── npm-run-path
+│   │   ├── nth-check
+│   │   ├── nwsapi
+│   │   ├── object-assign
+│   │   ├── object-inspect
+│   │   ├── object-keys
+│   │   ├── object.assign
+│   │   ├── obuf
+│   │   ├── on-finished
+│   │   ├── on-headers
+│   │   ├── once
+│   │   ├── onetime
+│   │   ├── open
+│   │   ├── opener
+│   │   ├── optionator
+│   │   ├── ora
+│   │   ├── own-keys
+│   │   ├── p-finally
+│   │   ├── p-limit
+│   │   ├── p-locate
+│   │   ├── p-retry
+│   │   ├── p-try
+│   │   ├── package-json-from-dist
+│   │   ├── param-case
+│   │   ├── parent-module
+│   │   ├── parse-json
+│   │   ├── parse5
+│   │   ├── parse5-htmlparser2-tree-adapter
+│   │   ├── parseurl
+│   │   ├── pascal-case
+│   │   ├── path-exists
+│   │   ├── path-is-absolute
+│   │   ├── path-key
+│   │   ├── path-parse
+│   │   ├── path-scurry
+│   │   ├── path-to-regexp
+│   │   ├── path-type
+│   │   ├── picocolors
+│   │   ├── picomatch
+│   │   ├── pirates
+│   │   ├── pkg-dir
+│   │   ├── portfinder
+│   │   ├── possible-typed-array-names
+│   │   ├── postcss
+│   │   ├── postcss-calc
+│   │   ├── postcss-colormin
+│   │   ├── postcss-convert-values
+│   │   ├── postcss-discard-comments
+│   │   ├── postcss-discard-duplicates
+│   │   ├── postcss-discard-empty
+│   │   ├── postcss-discard-overridden
+│   │   ├── postcss-loader
+│   │   ├── postcss-merge-longhand
+│   │   ├── postcss-merge-rules
+│   │   ├── postcss-minify-font-values
+│   │   ├── postcss-minify-gradients
+│   │   ├── postcss-minify-params
+│   │   ├── postcss-minify-selectors
+│   │   ├── postcss-modules-extract-imports
+│   │   ├── postcss-modules-local-by-default
+│   │   ├── postcss-modules-scope
+│   │   ├── postcss-modules-values
+│   │   ├── postcss-normalize-charset
+│   │   ├── postcss-normalize-display-values
+│   │   ├── postcss-normalize-positions
+│   │   ├── postcss-normalize-repeat-style
+│   │   ├── postcss-normalize-string
+│   │   ├── postcss-normalize-timing-functions
+│   │   ├── postcss-normalize-unicode
+│   │   ├── postcss-normalize-url
+│   │   ├── postcss-normalize-whitespace
+│   │   ├── postcss-ordered-values
+│   │   ├── postcss-reduce-initial
+│   │   ├── postcss-reduce-transforms
+│   │   ├── postcss-selector-parser
+│   │   ├── postcss-svgo
+│   │   ├── postcss-unique-selectors
+│   │   ├── postcss-value-parser
+│   │   ├── prelude-ls
+│   │   ├── prettier
+│   │   ├── pretty
+│   │   ├── pretty-bytes
+│   │   ├── pretty-error
+│   │   ├── pretty-format
+│   │   ├── process-nextick-args
+│   │   ├── progress
+│   │   ├── progress-webpack-plugin
+│   │   ├── prompts
+│   │   ├── proto-list
+│   │   ├── proxy-addr
+│   │   ├── proxy-from-env
+│   │   ├── pseudomap
+│   │   ├── psl
+│   │   ├── pump
+│   │   ├── punycode
+│   │   ├── qs
+│   │   ├── querystringify
+│   │   ├── queue-microtask
+│   │   ├── randombytes
+│   │   ├── range-parser
+│   │   ├── raw-body
+│   │   ├── react-is
+│   │   ├── read-pkg
+│   │   ├── read-pkg-up
+│   │   ├── readable-stream
+│   │   ├── readdirp
+│   │   ├── reflect.getprototypeof
+│   │   ├── regenerate
+│   │   ├── regenerate-unicode-properties
+│   │   ├── regenerator-runtime
+│   │   ├── regenerator-transform
+│   │   ├── regexp.prototype.flags
+│   │   ├── regexpp
+│   │   ├── regexpu-core
+│   │   ├── register-service-worker
+│   │   ├── regjsgen
+│   │   ├── regjsparser
+│   │   ├── relateurl
+│   │   ├── renderkid
+│   │   ├── require-directory
+│   │   ├── require-from-string
+│   │   ├── requires-port
+│   │   ├── resolve
+│   │   ├── resolve-cwd
+│   │   ├── resolve-from
+│   │   ├── resolve.exports
+│   │   ├── restore-cursor
+│   │   ├── retry
+│   │   ├── reusify
+│   │   ├── rimraf
+│   │   ├── rollup
+│   │   ├── rollup-plugin-terser
+│   │   ├── run-parallel
+│   │   ├── safe-array-concat
+│   │   ├── safe-buffer
+│   │   ├── safe-push-apply
+│   │   ├── safe-regex-test
+│   │   ├── safer-buffer
+│   │   ├── saxes
+│   │   ├── schema-utils
+│   │   ├── select-hose
+│   │   ├── selfsigned
+│   │   ├── semver
+│   │   ├── send
+│   │   ├── serialize-javascript
+│   │   ├── serve-index
+│   │   ├── serve-static
+│   │   ├── set-function-length
+│   │   ├── set-function-name
+│   │   ├── set-proto
+│   │   ├── setprototypeof
+│   │   ├── shallow-clone
+│   │   ├── shebang-command
+│   │   ├── shebang-regex
+│   │   ├── shell-quote
+│   │   ├── side-channel
+│   │   ├── side-channel-list
+│   │   ├── side-channel-map
+│   │   ├── side-channel-weakmap
+│   │   ├── signal-exit
+│   │   ├── sirv
+│   │   ├── sisteransi
+│   │   ├── slash
+│   │   ├── slice-ansi
+│   │   ├── sockjs
+│   │   ├── source-list-map
+│   │   ├── source-map
+│   │   ├── source-map-js
+│   │   ├── source-map-support
+│   │   ├── sourcemap-codec
+│   │   ├── spdx-correct
+│   │   ├── spdx-exceptions
+│   │   ├── spdx-expression-parse
+│   │   ├── spdx-license-ids
+│   │   ├── spdy
+│   │   ├── spdy-transport
+│   │   ├── sprintf-js
+│   │   ├── ssri
+│   │   ├── stable
+│   │   ├── stack-utils
+│   │   ├── stackframe
+│   │   ├── statuses
+│   │   ├── string-length
+│   │   ├── string-width
+│   │   ├── string-width-cjs
+│   │   ├── string.prototype.matchall
+│   │   ├── string.prototype.trim
+│   │   ├── string.prototype.trimend
+│   │   ├── string.prototype.trimstart
+│   │   ├── string_decoder
+│   │   ├── stringify-object
+│   │   ├── strip-ansi
+│   │   ├── strip-ansi-cjs
+│   │   ├── strip-bom
+│   │   ├── strip-comments
+│   │   ├── strip-eof
+│   │   ├── strip-final-newline
+│   │   ├── strip-indent
+│   │   ├── strip-json-comments
+│   │   ├── stylehacks
+│   │   ├── supports-color
+│   │   ├── supports-hyperlinks
+│   │   ├── supports-preserve-symlinks-flag
+│   │   ├── svgo
+│   │   ├── symbol-tree
+│   │   ├── table
+│   │   ├── tapable
+│   │   ├── temp-dir
+│   │   ├── tempy
+│   │   ├── terminal-link
+│   │   ├── terser
+│   │   ├── terser-webpack-plugin
+│   │   ├── test-exclude
+│   │   ├── text-table
+│   │   ├── thenify
+│   │   ├── thenify-all
+│   │   ├── thread-loader
+│   │   ├── throat
+│   │   ├── thunky
+│   │   ├── tmpl
+│   │   ├── to-regex-range
+│   │   ├── toidentifier
+│   │   ├── totalist
+│   │   ├── tough-cookie
+│   │   ├── tr46
+│   │   ├── ts-jest
+│   │   ├── ts-loader
+│   │   ├── tsconfig
+│   │   ├── tslib
+│   │   ├── tsutils
+│   │   ├── type-check
+│   │   ├── type-detect
+│   │   ├── type-fest
+│   │   ├── type-is
+│   │   ├── typed-array-buffer
+│   │   ├── typed-array-byte-length
+│   │   ├── typed-array-byte-offset
+│   │   ├── typed-array-length
+│   │   ├── typedarray-to-buffer
+│   │   ├── typescript
+│   │   ├── unbox-primitive
+│   │   ├── undici-types
+│   │   ├── unicode-canonical-property-names-ecmascript
+│   │   ├── unicode-match-property-ecmascript
+│   │   ├── unicode-match-property-value-ecmascript
+│   │   ├── unicode-property-aliases-ecmascript
+│   │   ├── unique-string
+│   │   ├── universalify
+│   │   ├── unpipe
+│   │   ├── upath
+│   │   ├── update-browserslist-db
+│   │   ├── uri-js
+│   │   ├── url-parse
+│   │   ├── util-deprecate
+│   │   ├── utila
+│   │   ├── utils-merge
+│   │   ├── uuid
+│   │   ├── v8-compile-cache
+│   │   ├── v8-to-istanbul
+│   │   ├── validate-npm-package-license
+│   │   ├── vary
+│   │   ├── vue
+│   │   ├── vue-class-component
+│   │   ├── vue-component-type-helpers
+│   │   ├── vue-eslint-parser
+│   │   ├── vue-hot-reload-api
+│   │   ├── vue-loader
+│   │   ├── vue-router
+│   │   ├── vue-style-loader
+│   │   ├── vue-template-es2015-compiler
+│   │   ├── vuex
+│   │   ├── w3c-hr-time
+│   │   ├── w3c-xmlserializer
+│   │   ├── walker
+│   │   ├── watchpack
+│   │   ├── wbuf
+│   │   ├── wcwidth
+│   │   ├── webidl-conversions
+│   │   ├── webpack
+│   │   ├── webpack-bundle-analyzer
+│   │   ├── webpack-chain
+│   │   ├── webpack-dev-middleware
+│   │   ├── webpack-dev-server
+│   │   ├── webpack-merge
+│   │   ├── webpack-sources
+│   │   ├── webpack-virtual-modules
+│   │   ├── websocket-driver
+│   │   ├── websocket-extensions
+│   │   ├── whatwg-encoding
+│   │   ├── whatwg-fetch
+│   │   ├── whatwg-mimetype
+│   │   ├── whatwg-url
+│   │   ├── which
+│   │   ├── which-boxed-primitive
+│   │   ├── which-builtin-type
+│   │   ├── which-collection
+│   │   ├── which-typed-array
+│   │   ├── wildcard
+│   │   ├── word-wrap
+│   │   ├── workbox-background-sync
+│   │   ├── workbox-broadcast-update
+│   │   ├── workbox-build
+│   │   ├── workbox-cacheable-response
+│   │   ├── workbox-core
+│   │   ├── workbox-expiration
+│   │   ├── workbox-google-analytics
+│   │   ├── workbox-navigation-preload
+│   │   ├── workbox-precaching
+│   │   ├── workbox-range-requests
+│   │   ├── workbox-recipes
+│   │   ├── workbox-routing
+│   │   ├── workbox-strategies
+│   │   ├── workbox-streams
+│   │   ├── workbox-sw
+│   │   ├── workbox-webpack-plugin
+│   │   ├── workbox-window
+│   │   ├── wrap-ansi
+│   │   ├── wrap-ansi-cjs
+│   │   ├── wrappy
+│   │   ├── write-file-atomic
+│   │   ├── ws
+│   │   ├── xml-name-validator
+│   │   ├── xmlchars
+│   │   ├── y18n
+│   │   ├── yallist
+│   │   ├── yaml
+│   │   ├── yargs
+│   │   ├── yargs-parser
+│   │   └── yorkie
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── public
+│   │   ├── favicon.ico
+│   │   ├── img
+│   │   ├── index.html
+│   │   └── robots.txt
+│   ├── src
+│   │   ├── App.vue
+│   │   ├── assets
+│   │   ├── components
+│   │   ├── config.js
+│   │   ├── main.ts
+│   │   ├── registerServiceWorker.ts
+│   │   ├── router
+│   │   ├── services
+│   │   ├── shims-vue.d.ts
+│   │   ├── store
+│   │   └── views
+│   ├── tests
+│   │   └── unit
+│   └── tsconfig.json
+├── informações.txt
+├── logs
+│   └── nginx
+│       ├── access.log
+│       └── error.log
+└── vendor
+    ├── autoload.php
+    ├── bin
+    │   └── carbon
+    ├── carbonphp
+    │   └── carbon-doctrine-types
+    ├── composer
+    │   ├── ClassLoader.php
+    │   ├── InstalledVersions.php
+    │   ├── LICENSE
+    │   ├── autoload_classmap.php
+    │   ├── autoload_files.php
+    │   ├── autoload_namespaces.php
+    │   ├── autoload_psr4.php
+    │   ├── autoload_real.php
+    │   ├── autoload_static.php
+    │   ├── installed.json
+    │   ├── installed.php
+    │   └── platform_check.php
+    ├── doctrine
+    │   └── inflector
+    ├── fruitcake
+    │   ├── laravel-cors
+    │   └── php-cors
+    ├── illuminate
+    │   ├── collections
+    │   ├── conditionable
+    │   ├── contracts
+    │   ├── macroable
+    │   └── support
+    ├── nesbot
+    │   └── carbon
+    ├── psr
+    │   ├── clock
+    │   ├── container
+    │   └── simple-cache
+    ├── symfony
+    │   ├── deprecation-contracts
+    │   ├── http-foundation
+    │   ├── polyfill-mbstring
+    │   ├── polyfill-php80
+    │   ├── polyfill-php83
+    │   ├── translation
+    │   └── translation-contracts
+    └── voku
+        └── portable-ascii
+
+952 directories, 71 files
+services:
+  app:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      APP_URL: http://localhost:9000
+      APP_ENV: local
+      APP_DEBUG: "true"
+      DB_CONNECTION: pgsql
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_DATABASE: laravel
+      DB_USERNAME: laravel
+      DB_PASSWORD: secret
+    volumes:
+      - ./backend:/var/www/html
+    networks:
+      - app-network
+    links:
+      - postgres
+    healthcheck:
+      test: ["CMD-SHELL", "php -v || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./backend:/var/www/html
+      - ./backend/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./logs/nginx:/var/log/nginx
+    ports:
+      - "9000:80"
+    networks:
+      - app-network
+    depends_on:
+      app:
+        condition: service_started
+
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: laravel
+      POSTGRES_USER: laravel
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U laravel -d laravel"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  pgdata:
+server {
+    listen 80;
+    server_name localhost;
+    root /var/www/html/public;
+
+    # Nova diretiva para roteamento SPA
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+
+        # Adicione estas linhas para aplicações de página única
+        if (!-e $request_filename) {
+            rewrite ^/(.*)$ /index.php?/$1 last;
+            break;
+        }
+    }
+
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass app:9000;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param PATH_INFO $fastcgi_path_info;
+
+        # Novos parâmetros para melhor desempenho
+        fastcgi_buffer_size 128k;
+        fastcgi_buffers 4 256k;
+        fastcgi_busy_buffers_size 256k;
+    }
+}
+FROM php:8.2-fpm
+
+# Instala dependências do sistema
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    curl \
+    unzip \
+    git \
+    && docker-php-ext-install pdo pdo_pgsql
+
+# Configura PHP-FPM
+RUN echo "listen = 0.0.0.0:9000" > /usr/local/etc/php-fpm.d/zz-docker.conf
+
+# Instala Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Configura diretório de trabalho
+WORKDIR /var/www/HTML
+
+# Copia apenas os arquivos necessários para instalação de dependências
+COPY . .
+
+# Instala dependências com cache
+RUN composer install --no-interaction --optimize-autoloader --no-dev && \
+    chown -R www-data:www-data storage bootstrap/cache && \
+    chmod -R 775 storage bootstrap/cache && \
+    php artisan config:cache && \
+    php artisan route:cache
+# Copia o restante da aplicação
+COPY . .
+
+# Configura permissões
+RUN chown -R www-data:www-data storage \
+    && chmod -R 775 storage \
+    && composer dump-autoload --optimize
+
+CMD ["php-fpm", "-F"]
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\{
+    TaskController,
+    CommentController,
+    AttachmentController,
+    ProjectController,
+    UserController
+};
+
+Route::get('/hello', function () {
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Hello World!',
+            'data' => null
+        ]);
+    });
+
+    // Tasks routes
+    Route::apiResource('tasks', TaskController::class);
+
+    // Nested routes for comments
+    Route::prefix('tasks/{task}')->group(function() {
+        Route::apiResource('comments', CommentController::class)->only(['index', 'store']);
+        Route::post('attachments', [AttachmentController::class, 'store']);
+    });
+
+    // Projects routes
+    Route::apiResource('projects', ProjectController::class)->only(['index', 'store']);
+
+    // Admin routes
+    Route::middleware('access.control:admin')->prefix('admin')->group(function() {
+        Route::apiResource('users', UserController::class)->except(['create', 'edit']);
+    });
+
+    Route::get('/hello', function () {
+    return response()->json(['message' => 'Hello World!']);
+});
+
+
+
+
+<?php
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\AttachmentController;
+use App\Http\Controllers\ProjectController;
+
+
+Route::prefix('api')->group(function() {
+
+//tasks routes
+Route::get('/tasks', [TaskController::class, 'index']);
+Route::post('/tasks', [TaskController::class, 'store']);
+Route::get('/tasks/{id}', [TaskController::class, 'show']);
+Route::put('/tasks/{id}', [TaskController::class, 'update']);
+Route::delete('/tasks/{id}', [TaskController::class, 'destroy']);
+Route::get('/hello', function () {
+    return response()->json(['message' => 'Hello World!']);
+});
+
+
+//Comments routes for task
+Route::get('/tasks/{taskId}/comments', [CommentController::class, 'index']);
+Route::post('/tasks/{taskId}/comments', [CommentController::class, 'store']);
+
+
+//File attachments for task
+Route::post('/tasks/{taskId}/attachments', [AttachmentController::class, 'store']);
+
+//Project routes
+Route::get('/projects', [ProjectController::class, 'index']);
+Route::post('/projects', [ProjectController::class, 'store']);
+
+
+//User management routes protected by acess control middleware
+Route::middleware('access.control:admin')->group(function () {
+	Route::get('/users', [UserController::class, 'index']);
+	Route::put('/users/{id}', [UserController::class, 'update']);
+	Route::delete('/users/{id}', [UserController::class, 'destroy']);
+});
+
+});
+\Illuminate\Support\Facades\Log::info('API routes loaded'); // Debug
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Log;
+
+class RouteServiceProvider extends ServiceProvider
+{
+    /**
+     * Define your route model bindings, pattern filters, etc.
+     */
+    public function boot()
+{
+    $this->routes(function () {
+        Route::middleware('api')
+            ->namespace($this->namespace)  // Adicione esta linha
+            ->group(base_path('routes/api.php'));
+    });
+}
+    /**
+     * Configure the rate limiters for the application.
+     */
+    protected function configureRateLimiting(): void
+    {
+        RateLimiter::for('api', function (Request $request) {
+            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
+        });
+    }
+
+    /**
+     * Define the routes for the application.
+     */
+    public function map(): void
+    {
+        Log::debug('Mapping routes...');
+
+        $this->mapApiRoutes();
+    }
+
+    /**
+     * Define the "api" routes for the application.
+     */
+    protected function mapApiRoutes(): void
+{
+    Route::middleware('api')
+        ->prefix('api')
+        ->namespace('App\Http\Controllers')
+        ->group(base_path('routes/api.php')); // Teste com o novo arquivo
+}
+}
+APP_NAME=Laravel
+APP_ENV=local
+APP_KEY=base64:D935Iim4uR64Yw/2QfGyWh581oBcJNB1ZJIlNbKuGus=
+APP_DEBUG=true
+APP_URL=http://localhost:9000
+
+APP_LOCALE=en
+APP_FALLBACK_LOCALE=en
+APP_FAKER_LOCALE=en_US
+
+APP_MAINTENANCE_DRIVER=file
+# APP_MAINTENANCE_STORE=database
+
+PHP_CLI_SERVER_WORKERS=4
+
+BCRYPT_ROUNDS=12
+
+LOG_CHANNEL=stack
+LOG_STACK=single
+LOG_DEPRECATIONS_CHANNEL=null
+LOG_LEVEL=debug
+
+
+DB_CONNECTION=pgsql
+DB_HOST=postgres
+DB_PORT=5432
+DB_DATABASE=laravel
+DB_USERNAME=laravel
+DB_PASSWORD=secret
+
+
+SESSION_DRIVER=database
+SESSION_LIFETIME=120
+SESSION_ENCRYPT=false
+SESSION_PATH=/
+SESSION_DOMAIN=localhost
+
+BROADCAST_CONNECTION=log
+FILESYSTEM_DISK=local
+QUEUE_CONNECTION=database
+
+CACHE_STORE=database
+# CACHE_PREFIX=
+
+MEMCACHED_HOST=127.0.0.1
+
+REDIS_CLIENT=phpredis
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_MAILER=log
+MAIL_SCHEME=null
+MAIL_HOST=127.0.0.1
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_FROM_ADDRESS="hello@example.com"
+MAIL_FROM_NAME="${APP_NAME}"
+
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=
+AWS_USE_PATH_STYLE_ENDPOINT=false
+
+VITE_APP_NAME="${APP_NAME}"

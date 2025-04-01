@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     unzip \
     git \
+    iputils-ping \
     && docker-php-ext-install pdo pdo_pgsql
 
 # Configura PHP-FPM
@@ -15,7 +16,7 @@ RUN echo "listen = 0.0.0.0:9000" > /usr/local/etc/php-fpm.d/zz-docker.conf
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Configura diretório de trabalho
-WORKDIR /var/www/HTML
+WORKDIR /var/www/html
 
 # Copia apenas os arquivos necessários para instalação de dependências
 COPY . .
