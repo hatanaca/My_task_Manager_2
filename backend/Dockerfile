@@ -1,20 +1,37 @@
-FROM php:8.0-fpm
+FROM php:8.2-fpm
 
-#install dependencies
+# Instala dependências do sistema
 RUN apt-get update && apt-get install -y \
-	libpq-dev \
-	git \
-	unzip \
-	&& docker-php-ext-install pdo_pgsql
+    libpq-dev \
+    curl \
+    unzip \
+    git \
+    && docker-php-ext-install pdo pdo_pgsql
 
-#Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer	
+# Configura PHP-FPM
+RUN echo "listen = 0.0.0.0:9000" > /usr/local/etc/php-fpm.d/zz-docker.conf
 
-WORKDIR /var/www
+# Instala Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Configura diretório de trabalho
+WORKDIR /var/www/HTML
+
+# Copia apenas os arquivos necessários para instalação de dependências
 COPY . .
-RUN composer install
 
-EXPOSE 8000
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+# Instala dependências com cache
+RUN composer install --no-interaction --optimize-autoloader --no-dev && \
+    chown -R www-data:www-data storage bootstrap/cache && \
+    chmod -R 775 storage bootstrap/cache && \
+    php artisan config:cache && \
+    php artisan route:cache
+# Copia o restante da aplicação
+COPY . .
 
+# Configura permissões
+RUN chown -R www-data:www-data storage \
+    && chmod -R 775 storage \
+    && composer dump-autoload --optimize
 
+CMD ["php-fpm", "-F"]

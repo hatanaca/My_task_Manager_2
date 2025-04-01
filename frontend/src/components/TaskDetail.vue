@@ -11,7 +11,7 @@
 		<CommentSection :taskId="task.id" />
 		<button @click="goBack">Back</button>
 	</div>
-	</div v-else>
+	<div v-else>
 		<p>Loading task details...</p>
 		</div>
 </template>
@@ -23,7 +23,7 @@ import { useRoute, useRouter } from 'vue-router';
 //useRoute => information of actual URL, useRouter navegation between pages
 import axios from 'axios';
 //http request
-import CommentSection from './CommenSelection.vue';
+import CommentSection from './CommentSection.vue';
 import FileAttachment from './FileAttachment.vue';
 //linha 10,11 ":" => "v-bind:taskId="task.id"
 interface Task {

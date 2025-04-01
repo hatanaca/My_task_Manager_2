@@ -1,22 +1,22 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schemaz\Blueprint;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommentsTable extends Migration 
+class CreateCommentsTable extends Migration
 {
-	public function up() 
+	public function up()
 	{
 		Schema::create('comments', function (Blueprint $table) {
 			$table->id();
-			$table->foreingId('task_id')->constrained()->onDelete('cascade');
-			$table->foreingId('user_id')->constrained()->onDelete('cascade');
+			$table->foreignId('task_id')->constrained()->onDelete('cascade');
+			$table->foreignId('user_id')->constrained()->onDelete('cascade');
 			$table->text('content');
 			$table->timestamps();
 		});
 	}
-	public function down() 
+	public function down()
 	{
 		Schema::dropIfExists('comments');
 	}

@@ -2,10 +2,10 @@
 	<div>
 		<h3>File Attachment</h3>
 		<input type="file" @change="uploadFile"/>
-		<!-- @ => v-on --!>
+		<!-- @ => v-on -->
 		<ul>
 			<li v-for="attachment in attachments" :key="attachment.id">
-			<!-- : => v-bind --!>
+			<!-- : => v-bind -->
 				<a :href="downloadUrl(attachment.filepath)" target="_blank"> {{ attachment.filename }}</a>
 			</li>
 		</ul>
@@ -27,8 +27,8 @@
 		props: { //objeto para receber parametros do componente pai
 			taskId: {
 			//definindo regras para o TaskId
-				type: Number;
-				required: true;
+				type: Number,
+				required: true
 			}
 		},
 		setup(props) {
@@ -43,7 +43,7 @@
 			};
 			const uploadFile = async (event: Event) => {
 				const target = event.target as HTMLInputElement;
-				if (target.files && target.files[0] {
+				if (target.files && target.files[0]) {
 					const formData = new FormData();
 					formData.append('file', target.files[0]);
 					try {
@@ -65,4 +65,3 @@
 
 	});
 </script>
-

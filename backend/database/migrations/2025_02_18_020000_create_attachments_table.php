@@ -1,12 +1,12 @@
 <?php
 
-use Iluminate\Database\Migrations\Migration;
-use Iluminate\Database\Schema\Blueprint;
-use Iluminate\Support\Facades\Schema;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateAttachmentsTable extends Migration
 {
-	public function up() 
+	public function up()
 	{
 		Schema::create('attachments', function (Blueprint $table) {
 			$table->id();

@@ -1,37 +1,41 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TaskController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\AttachmentController;
-use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\{
+    TaskController,
+    CommentController,
+    AttachmentController,
+    ProjectController,
+    UserController
+};
 
-//tasks routes
-Route::get('/tasks', [TaskController::class, 'index']);
-Route::post('/tasks', [TaskController::class, 'store']);
-Route::get('/tasks/{id}', [TaskController::class, 'show']);
-Route::put('/tasks/{id}', [TaskController::class, 'update']);
-Route::delete('/tasks/{id}', [TasController::class, 'destroy']);
+Route::get('/hello', function () {
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Hello World!',
+            'data' => null
+        ]);
+    });
 
+    // Tasks routes
+    Route::apiResource('tasks', TaskController::class);
 
-//Comments routes for task
-Route::get('/tasks/{taskId}/comments', [CommentController::class, 'index']);
-Route::post('/tasks/{taskId}/comments', [CommentController::class, 'store']);
+    // Nested routes for comments
+    Route::prefix('tasks/{task}')->group(function() {
+        Route::apiResource('comments', CommentController::class)->only(['index', 'store']);
+        Route::post('attachments', [AttachmentController::class, 'store']);
+    });
 
+    // Projects routes
+    Route::apiResource('projects', ProjectController::class)->only(['index', 'store']);
 
-//File attachments for task
-Route::post('/tasks/{taskId}/attachments', [AttachmentController::class, 'store']);
+    // Admin routes
+    Route::middleware('access.control:admin')->prefix('admin')->group(function() {
+        Route::apiResource('users', UserController::class)->except(['create', 'edit']);
+    });
 
-//Project routes
-Route::get('/projects', [ProjectController::class, 'index']);
-Route::post('/projects', [ProjectController::class, 'store']);
-
-
-//User management routes protected by acess control middleware
-Route::middleware('access.control:admin')->group(function () {
-	Route::get('/users', [UserController::class, 'index']);
-	Route::put('/users/{id}', [UserController::class, 'update']);
-	Route::delete('/users/{id}', [UserController::class, 'destroy']);
+    Route::get('/hello', function () {
+    return response()->json(['message' => 'Hello World!']);
 });
+
+

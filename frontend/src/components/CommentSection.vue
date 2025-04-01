@@ -3,7 +3,7 @@
 		<h3>Comments</h3>
 		<ul>
 			<li v-for="comment in comments" :key="comment.it">
-				<strong>{{ comment.user.name }}
+				<strong>{{ comment.user.name }}</strong>
 			</li>
 		</ul>
 		<form @submit.prevent="postComment">
